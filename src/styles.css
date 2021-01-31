@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  background-color: turquoise;
+}
+
+.poker {
+  width: 75px;
+  height: 100px;
+  background-color: white;
+  border-radius: 3vh;
+  margin: 0 4px;
+}
+
+#icon1-container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 10px;
+}
+
+#number-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#icon2-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: -6px 10px;
+}
+
+#icon1-paragraph {
+  width: 100%;
+}
