@@ -129,8 +129,6 @@ const selectionSort = (array) => {
 
 let newArr = [];
 
-let sortedArray = [];
-
 createButton.addEventListener('click', () => {
   newArr = createCardArray(amountInput.value);
   display.render(newArr, cardsContainer)
