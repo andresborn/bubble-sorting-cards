@@ -41,6 +41,7 @@ const getRandomCard = (() => {
       id: xCard,
       suit: y,
       value: xIdx,
+      color: y === "♥" || y === "♦" ? "red" : "black"
     };
     return newCard;
   };
@@ -62,13 +63,13 @@ const display = (() => {
             return `
                 <div class="poker">
                     <div id="icon1-container">
-                        <p id="icon1-paragraph">${each.suit}</p>
+                        <p id="icon1-paragraph" style="color:${each.color};">${each.suit}</p>
                     </div>
                     <div id="number-container">
-                        <p id="number-paragraph">${each.id}</p>
+                        <p id="number-paragraph" style="color:${each.color};">${each.id}</p>
                     </div>
                     <div id="icon2-container">
-                        <p id="icon2-paragraph">${each.suit}</p>
+                        <p id="icon2-paragraph" style="color:${each.color};">${each.suit}</p>
                     </div>
                 </div>`;
         }).join('')
@@ -81,13 +82,13 @@ const display = (() => {
       div.innerHTML = `
         <div class="poker">
             <div id="icon1-container">
-                <p id="icon1-paragraph">${each.suit}</p>
+                <p id="icon1-paragraph" style="color:${each.color};">${each.suit}</p>
             </div>
             <div id="number-container">
-                <p id="number-paragraph">${each.id}</p>
+                <p id="number-paragraph" style="color:${each.color};">${each.id}</p>
             </div>
             <div id="icon2-container">
-                <p id="icon2-paragraph">${each.suit}</p>
+                <p id="icon2-paragraph" style="color:${each.color};">${each.suit}</p>
             </div>
         </div>`;
       containerDiv.appendChild(div)
