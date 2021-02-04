@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 
 const cardsContainer = document.querySelector("#created-cards-container");
-const mainContainer = document.querySelector("#main-cards-container");
+const sortedContainer = document.querySelector("#sorted-cards-container");
 const amountInput = document.querySelector("#card-amount")
 const createButton = document.querySelector("#create-button")
 const bubbleSortButton = document.querySelector("#bubble-sort-button")
@@ -74,28 +74,8 @@ const display = (() => {
                 </div>`;
         }).join('')
   };
-  const renderIndividual = (array, container) => {
-    const containerDiv = document.createElement("div")
-    containerDiv.className = "row d-flex justify-content-center my-3 mx-0"
-    array.forEach((each) => {
-      const div = document.createElement("div")
-      div.innerHTML = `
-        <div class="poker">
-            <div id="icon1-container">
-                <p id="icon1-paragraph" style="color:${each.color};">${each.suit}</p>
-            </div>
-            <div id="number-container">
-                <p id="number-paragraph" style="color:${each.color};">${each.id}</p>
-            </div>
-            <div id="icon2-container">
-                <p id="icon2-paragraph" style="color:${each.color};">${each.suit}</p>
-            </div>
-        </div>`;
-      containerDiv.appendChild(div)
-    })
-    container.appendChild(containerDiv)    
-  }
-  return { render, renderIndividual };
+
+  return { render };
 })();
 
 const bubbleSort = (array) => {
@@ -108,7 +88,6 @@ const bubbleSort = (array) => {
         array[i+1] = aux;
       }
     }
-    display.renderIndividual(array, mainContainer)
   }
   return array
 }
@@ -122,7 +101,6 @@ const selectionSort = (array) => {
         array[i] = aux
       }      
     }
-    display.renderIndividual(array, mainContainer)
   }
   return array
 }
@@ -135,9 +113,11 @@ createButton.addEventListener('click', () => {
 })
 
 bubbleSortButton.addEventListener('click', () => {
-  sortedArray = bubbleSort(newArr)
+  let sortedArray = bubbleSort(newArr)
+  display.render(sortedArray, sortedContainer)
 })
 
 selectionSortButton.addEventListener('click', () => {
-  sortedArray = selectionSort(newArr)
+  let sortedArray = selectionSort(newArr)
+  display.render(sortedArray, sortedContainer)
 })
